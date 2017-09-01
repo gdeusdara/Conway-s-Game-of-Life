@@ -1,8 +1,6 @@
 #include <iostream>
 #include "celula.hpp"
 
-using namespace std;
-
 celula::celula(){
 	estado = '-';
 }
