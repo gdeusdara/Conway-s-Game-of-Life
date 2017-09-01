@@ -18,6 +18,7 @@ public:
 
 	void getMatriz();
 	void setMatriz(int linha, int coluna, string estado);
+	void setGosperGliderGun();
 };
 
 
