@@ -10,7 +10,7 @@ using namespace std;
 class campo: public celula{
 private:
 
-	celula matriz[40][40];
+	celula matriz[57][220];
 
 public:
 	campo();
