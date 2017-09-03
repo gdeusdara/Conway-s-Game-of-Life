@@ -11,6 +11,17 @@ campo::campo(){
 campo::~campo(){
 }
 
+char campo::getEstado(int linha, int coluna){
+	return matriz[linha][coluna].getEstado();
+}
+
+void campo::setViver(int linha, int coluna){
+	return matriz[linha][coluna].setViver();
+}
+
+void campo::setMorrer(int linha, int coluna){
+	return matriz[linha][coluna].setMorrer();
+}
 
 void campo::getMatriz(){
 	cout <<	"\t\t\t\t\t\t\t\t\t\t\t\t\t\tJOGO DA VIDA" << endl << endl;
@@ -23,13 +34,6 @@ void campo::getMatriz(){
 		cout << endl;
 	}
 	cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\t\tteste 1" << endl;
-}
-
-void campo::setMatriz(int linha, int coluna, string estado){
-	if(estado == "morte")
-		matriz[linha][coluna].setMorrer();
-	else
-		matriz[linha][coluna].setViver();
 }
 
 void campo::setGosperGliderGun(){
@@ -50,31 +54,31 @@ void campo::setGosperGliderGun(){
 		matriz[26 + moverVertical][103 + moverHorizontal].setViver();
 		matriz[31 + moverVertical][104 + moverHorizontal].setViver();
 		matriz[31 + moverVertical][105 + moverHorizontal].setViver();
+		matriz[25 + moverVertical][104 + moverHorizontal].setViver();
+		matriz[28 + moverVertical][106 + moverHorizontal].setViver();
 		matriz[25 + moverVertical][105 + moverHorizontal].setViver();
-		matriz[28 + moverVertical][107 + moverHorizontal].setViver();
-		matriz[25 + moverVertical][106 + moverHorizontal].setViver();
-		matriz[26 + moverVertical][108 + moverHorizontal].setViver();
-		matriz[30 + moverVertical][108 + moverHorizontal].setViver();
-		matriz[27 + moverVertical][109 + moverHorizontal].setViver();
+		matriz[26 + moverVertical][107 + moverHorizontal].setViver();
+		matriz[30 + moverVertical][107 + moverHorizontal].setViver();
+		matriz[27 + moverVertical][108 + moverHorizontal].setViver();
+		matriz[28 + moverVertical][108 + moverHorizontal].setViver();
+		matriz[29 + moverVertical][108 + moverHorizontal].setViver();
 		matriz[28 + moverVertical][109 + moverHorizontal].setViver();
-		matriz[29 + moverVertical][109 + moverHorizontal].setViver();
-		matriz[28 + moverVertical][110 + moverHorizontal].setViver();
+		matriz[27 + moverVertical][112 + moverHorizontal].setViver();
+		matriz[26 + moverVertical][112 + moverHorizontal].setViver();
+		matriz[25 + moverVertical][112 + moverHorizontal].setViver();
 		matriz[27 + moverVertical][113 + moverHorizontal].setViver();
 		matriz[26 + moverVertical][113 + moverHorizontal].setViver();
 		matriz[25 + moverVertical][113 + moverHorizontal].setViver();
-		matriz[27 + moverVertical][114 + moverHorizontal].setViver();
-		matriz[26 + moverVertical][114 + moverHorizontal].setViver();
-		matriz[25 + moverVertical][114 + moverHorizontal].setViver();
-		matriz[24 + moverVertical][115 + moverHorizontal].setViver();
-		matriz[28 + moverVertical][115 + moverHorizontal].setViver();
-		matriz[28 + moverVertical][117 + moverHorizontal].setViver();
-		matriz[24 + moverVertical][117 + moverHorizontal].setViver();
-		matriz[23 + moverVertical][117 + moverHorizontal].setViver();
-		matriz[29 + moverVertical][117 + moverHorizontal].setViver();
+		matriz[24 + moverVertical][114 + moverHorizontal].setViver();
+		matriz[28 + moverVertical][114 + moverHorizontal].setViver();
+		matriz[28 + moverVertical][116 + moverHorizontal].setViver();
+		matriz[24 + moverVertical][116 + moverHorizontal].setViver();
+		matriz[23 + moverVertical][116 + moverHorizontal].setViver();
+		matriz[29 + moverVertical][116 + moverHorizontal].setViver();
+		matriz[26 + moverVertical][126 + moverHorizontal].setViver();
+		matriz[25 + moverVertical][126 + moverHorizontal].setViver();
 		matriz[26 + moverVertical][127 + moverHorizontal].setViver();
 		matriz[25 + moverVertical][127 + moverHorizontal].setViver();
-		matriz[26 + moverVertical][128 + moverHorizontal].setViver();
-		matriz[25 + moverVertical][128 + moverHorizontal].setViver();
 
 		getMatriz();
 		cin >> botao;

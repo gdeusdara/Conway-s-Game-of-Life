@@ -16,8 +16,10 @@ public:
 	campo();
 	~campo();
 
+	char getEstado(int linha, int coluna);
+	void setViver(int linha, int coluna);
+	void setMorrer(int linha, int coluna);
 	void getMatriz();
-	void setMatriz(int linha, int coluna, string estado);
 	void setGosperGliderGun();
 };
 
