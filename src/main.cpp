@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(int argc, char ** argv) {
-	campo x;
+	campo x, y;
 	int linha;
 	int coluna;
 	int contagem;
@@ -18,8 +18,7 @@ int main(int argc, char ** argv) {
 	 while(tempo < 100){
 
 		x.getMatriz();
-		sleep(1);
-
+		usleep(300000);
 
 		for (linha = 0; linha < 57; linha++)
 			for (coluna = 0; coluna < 220; coluna++){
@@ -28,10 +27,10 @@ int main(int argc, char ** argv) {
 					if (x.getEstado(linha - 1, coluna) == 'E')
 						contagem++;
 					if (coluna - 1 >= 0)
-						if (x.getEstado(linha -1, coluna - 1) == 'E')
+						if (x.getEstado(linha - 1, coluna - 1) == 'E')
 							contagem++;
 					if (coluna + 1 < 220)
-						if (x.getEstado(linha -1, coluna + 1) == 'E')
+						if (x.getEstado(linha - 1, coluna + 1) == 'E')
 							contagem++;
 				}
 				if (coluna - 1 >= 0)
@@ -49,19 +48,23 @@ int main(int argc, char ** argv) {
 					if(coluna + 1 < 220)
 						if(x.getEstado(linha +1, coluna + 1) == 'E')
 							contagem++;
-					}
-				
-				if(x.getEstado(linha, coluna) == '-')
-					if(contagem == 3)
-						x.setViver(linha, coluna);
-
-				if(x.getEstado(linha, coluna) == 'E'){
-					if(contagem < 2)
-						x.setMorrer(linha, coluna);
-					if(contagem > 3)
-						x.setMorrer(linha, coluna);
 				}
+				
+				if(x.getEstado(linha, coluna) == '-'){
+					if(contagem == 3){
+						y.setViver(linha, coluna);
+					}
+				}else{
+					if(contagem < 2 or contagem > 3){
+						y.setMorrer(linha, coluna);
+					}else{
+						y.setViver(linha,coluna);
+					}
+				}
+				
 			}
+
+		x = y;
 		tempo++;
 		
 	}
