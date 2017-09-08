@@ -19,6 +19,8 @@ public:
 	char getEstado(int linha, int coluna);
 	void setViver(int linha, int coluna);
 	void setMorrer(int linha, int coluna);
+	void setEstadoVivo(char vivo);
+	void setEstadoMorto(char morto);
 	void getMatriz();
 	void setGosperGliderGun();
 };

@@ -23,6 +23,26 @@ void campo::setMorrer(int linha, int coluna){
 	return matriz[linha][coluna].setMorrer();
 }
 
+void campo::setEstadoVivo(char vivo){
+	int linha, coluna;
+
+	celula::setEstadoVivo(vivo);
+
+	for(linha = 0; linha < 57; linha++)
+		for(coluna = 0; coluna < 220; coluna++)
+			matriz[linha][coluna].setEstadoVivo(vivo);
+}
+
+void campo::setEstadoMorto(char morto){
+	int linha, coluna;
+	
+	celula::setEstadoMorto(morto);
+	
+	for(linha = 0; linha < 57; linha++)
+		for(coluna = 0; coluna < 220; coluna++)
+			matriz[linha][coluna].setEstadoMorto(morto);
+}
+
 void campo::getMatriz(){
 	cout <<	"\t\t\t\t\t\t\t\t\t\t\t\t\t\tJOGO DA VIDA" << endl << endl;
 

@@ -13,11 +13,13 @@ int main(int argc, char ** argv) {
 	int contagem;
 	int tempo = 0;
 
+	principal.setEstadoVivo('O');
+	complementar.setEstadoVivo('O');
+
 	principal.setGosperGliderGun();
 	cout << "faça De novo" << endl;
 	principal.setGosperGliderGun();
-	cout << "faça De novo" << endl;
-	principal.setGosperGliderGun();
+	
 
 	 while(tempo < 500){
 
