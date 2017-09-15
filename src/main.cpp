@@ -1,6 +1,8 @@
 #include <iostream>
 #include "celula.hpp"
 #include "campo.hpp"
+#include "forma.hpp"
+#include "GosperGliderGun.hpp"
 #include <string>
 #include <unistd.h>
 
@@ -12,13 +14,12 @@ int main(int argc, char ** argv) {
 	int coluna;
 	int contagem;
 	int tempo = 0;
+	GosperGliderGun forma1;
+	
 
-	principal.setEstadoVivo('O');
-	complementar.setEstadoVivo('O');
-
-	principal.setGosperGliderGun();
+	principal.acrescentaForma(forma1);
 	cout << "faça De novo" << endl;
-	principal.setGosperGliderGun();
+	principal.acrescentaForma(forma1);
 	
 
 	 while(tempo < 500){
@@ -69,6 +70,7 @@ int main(int argc, char ** argv) {
 				}
 				
 			}
+
 
 		principal = complementar;
 		tempo++;

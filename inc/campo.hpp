@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "celula.hpp"
+#include "forma.hpp"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ public:
 	void setEstadoVivo(char vivo);
 	void setEstadoMorto(char morto);
 	void getMatriz();
-	void setGosperGliderGun();
+	void acrescentaForma(forma organismo);
 };
 
 

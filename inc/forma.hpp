@@ -1,7 +1,6 @@
 #ifndef FORMA_HPP
 #define FORMA_HPP
 
-#include <string>
 #include <iostream>
 #include <vector>
 
@@ -19,7 +18,7 @@ public:
 	int getQuantidadeCoordenadas();
 	int getCoordenada_x(int posicao);
 	int getCoordenada_y(int posicao);
-	void acrescentaCordenadas(int coordenada_x, int coordenada_y);
+	void acrescentaCoordenadas(int coordenada_x, int coordenada_y);
 
 };
 
