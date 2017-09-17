@@ -24,6 +24,7 @@ public:
 	void setEstadoMorto(char morto);
 	void getMatriz();
 	void acrescentaForma(forma organismo);
+	campo regrasDoJogo();
 };
 
 

@@ -91,3 +91,55 @@ void campo::acrescentaForma(forma organismo){
 	}
 }
 
+campo campo::regrasDoJogo(){
+	int linha, coluna;
+	int contagem;
+	campo complementar;
+
+	for (linha = 0; linha < 57; linha++)
+			for (coluna = 0; coluna < 220; coluna++){
+				contagem = 0;
+				if (linha - 1 >= 0){
+					if (getEstado(linha - 1, coluna) == getEstadoVivo())
+						contagem++;
+					if (coluna - 1 >= 0)
+						if (getEstado(linha - 1, coluna - 1) == getEstadoVivo())
+							contagem++;
+					if (coluna + 1 < 220)
+						if (getEstado(linha - 1, coluna + 1) == getEstadoVivo())
+							contagem++;
+				}
+				if (coluna - 1 >= 0)
+					if(getEstado(linha, coluna - 1) == getEstadoVivo())
+						contagem++;
+				if (coluna + 1 < 220)
+					if(getEstado(linha, coluna + 1) == getEstadoVivo())
+						contagem++;
+				if(linha + 1 < 57){
+					if(getEstado(linha + 1, coluna) == getEstadoVivo())
+						contagem++;
+					if(coluna - 1 >= 0)
+						if(getEstado(linha + 1, coluna - 1) == getEstadoVivo())
+							contagem++;
+					if(coluna + 1 < 220)
+						if(getEstado(linha +1, coluna + 1) == getEstadoVivo())
+							contagem++;
+				}
+				
+				if(getEstado(linha, coluna) == getEstadoMorto()){
+					if(contagem == 3){
+						complementar.setViver(linha, coluna);
+					}
+				}else{
+					if(contagem < 2 or contagem > 3){
+						complementar.setMorrer(linha, coluna);
+					}else{
+						complementar.setViver(linha,coluna);
+					}
+				}
+				
+			}
+
+
+		return complementar;
+}
