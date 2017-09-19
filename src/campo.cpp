@@ -1,60 +1,62 @@
 #include <iostream>
+#include <cstdlib>
+#include <locale>
+
 #include "campo.hpp"
-#include "celula.hpp"
-#include <string>
 #include "forma.hpp"
+
+
 
 using namespace std;
 
 campo::campo(){
+	vivo = 'E';
+	morto = '-';
+
+	int linha, coluna;
+
+	for(linha = 0; linha < 56; linha++)
+		for(coluna = 0; coluna < 220; coluna++)
+			matriz[linha][coluna] = morto;
+}
+
+campo::campo(char vivo, char morto){
+	this->vivo = vivo;
+	this->morto = morto;
+
+	int linha, coluna;
+	
+	for(linha = 0; linha < 56; linha++)
+		for(coluna = 0; coluna < 220; coluna++)
+			matriz[linha][coluna] = morto;
 }
 
 campo::~campo(){
 }
 
 char campo::getEstado(int linha, int coluna){
-	return matriz[linha][coluna].getEstado();
+	return matriz[linha][coluna];
 }
 
 void campo::setViver(int linha, int coluna){
-	return matriz[linha][coluna].setViver();
+	matriz[linha][coluna] = vivo;
 }
 
 void campo::setMorrer(int linha, int coluna){
-	return matriz[linha][coluna].setMorrer();
-}
-
-void campo::setEstadoVivo(char vivo){
-	int linha, coluna;
-
-	celula::setEstadoVivo(vivo);
-
-	for(linha = 0; linha < 57; linha++)
-		for(coluna = 0; coluna < 220; coluna++)
-			matriz[linha][coluna].setEstadoVivo(vivo);
-}
-
-void campo::setEstadoMorto(char morto){
-	int linha, coluna;
-	
-	celula::setEstadoMorto(morto);
-	
-	for(linha = 0; linha < 57; linha++)
-		for(coluna = 0; coluna < 220; coluna++)
-			matriz[linha][coluna].setEstadoMorto(morto);
+	matriz[linha][coluna] = morto;
 }
 
 void campo::getMatriz(){
+	system("clear");
 	cout <<	"\t\t\t\t\t\t\t\t\t\t\t\t\t\tJOGO DA VIDA" << endl << endl;
 
 	int linha, coluna;
-	for (linha = 0; linha < 57; linha++){
+	for (linha = 0; linha < 56; linha++){
 		cout << "	";
 		for (coluna = 0; coluna < 220; coluna++)
-			cout << matriz[linha][coluna].getEstado();
+			cout << matriz[linha][coluna];
 		cout << endl;
 	}
-	cout << endl << "\t\t\t\t\t\t\t\t\t\t\t\t\t\tteste 1" << endl;
 }
 
 void campo::acrescentaForma(forma organismo){
@@ -63,29 +65,33 @@ void campo::acrescentaForma(forma organismo){
 
 	char botao;
 	
-	while(botao != 'p'){
+	while(botao != 't'){
 		for(int contador = 0; contador < organismo.getQuantidadeCoordenadas(); contador++)
-			matriz[organismo.getCoordenada_x(contador) + moverVertical][organismo.getCoordenada_y(contador) + moverHorizontal].setViver();
+			matriz[organismo.getCoordenada_x(contador) + moverVertical][organismo.getCoordenada_y(contador) + moverHorizontal] = vivo;
 
 		getMatriz();
+		cout << endl << "\tutilize as teclas A,S,D,W para MOVER o organismo\t\t\t\t\t\tAperte T para terminar de ajustar\t\t\t\t\t\t(sempre aperte ENTER depois das teclas)" << endl;
+		cout << endl << "\t\t\t\t\t\t\t\t\tÉ RECOMENDADO RETIRAR O ORGANISMO DO MEIO DO CAMPO SE FOR ACRESCRENTAR MAIS ORGANISMOS" <<endl;
 		cin >> botao;
+		botao = tolower(botao);
 
-		if(botao != 'p'){
+		if(botao != 't'){
 			for(int contador = 0; contador < organismo.getQuantidadeCoordenadas(); contador++)
-				matriz[organismo.getCoordenada_x(contador) + moverVertical][organismo.getCoordenada_y(contador) + moverHorizontal].setMorrer();
+				matriz[organismo.getCoordenada_x(contador) + moverVertical][organismo.getCoordenada_y(contador) + moverHorizontal] = morto;
 
-
-			if(botao == 'a')
-				moverHorizontal -= 1;
-			else 
-				if (botao == 'd')
-					moverHorizontal += 1;
-				else
-					if(botao == 'w')
-						moverVertical -= 1;
-					else
-						if(botao == 's')
-							moverVertical += 1;	
+			switch (botao) {
+		 	case 'a':
+		    	moverHorizontal -= 1;
+		    	break;
+		  	case 'd':
+		    	moverHorizontal += 1;
+		    	break;
+		    case 'w':
+		    	moverVertical -= 1;
+		    	break;
+		    case 's':
+		    	moverVertical += 1;
+		 	}
 			
 		}
 	}
@@ -96,37 +102,37 @@ campo campo::regrasDoJogo(){
 	int contagem;
 	campo complementar;
 
-	for (linha = 0; linha < 57; linha++)
+	for (linha = 0; linha < 56; linha++)
 			for (coluna = 0; coluna < 220; coluna++){
 				contagem = 0;
 				if (linha - 1 >= 0){
-					if (getEstado(linha - 1, coluna) == getEstadoVivo())
+					if (getEstado(linha - 1, coluna) == vivo)
 						contagem++;
 					if (coluna - 1 >= 0)
-						if (getEstado(linha - 1, coluna - 1) == getEstadoVivo())
+						if (getEstado(linha - 1, coluna - 1) == vivo)
 							contagem++;
 					if (coluna + 1 < 220)
-						if (getEstado(linha - 1, coluna + 1) == getEstadoVivo())
+						if (getEstado(linha - 1, coluna + 1) == vivo)
 							contagem++;
 				}
 				if (coluna - 1 >= 0)
-					if(getEstado(linha, coluna - 1) == getEstadoVivo())
+					if(getEstado(linha, coluna - 1) == vivo)
 						contagem++;
 				if (coluna + 1 < 220)
-					if(getEstado(linha, coluna + 1) == getEstadoVivo())
+					if(getEstado(linha, coluna + 1) == vivo)
 						contagem++;
-				if(linha + 1 < 57){
-					if(getEstado(linha + 1, coluna) == getEstadoVivo())
+				if(linha + 1 < 56){
+					if(getEstado(linha + 1, coluna) == vivo)
 						contagem++;
 					if(coluna - 1 >= 0)
-						if(getEstado(linha + 1, coluna - 1) == getEstadoVivo())
+						if(getEstado(linha + 1, coluna - 1) == vivo)
 							contagem++;
 					if(coluna + 1 < 220)
-						if(getEstado(linha +1, coluna + 1) == getEstadoVivo())
+						if(getEstado(linha +1, coluna + 1) == vivo)
 							contagem++;
 				}
 				
-				if(getEstado(linha, coluna) == getEstadoMorto()){
+				if(getEstado(linha, coluna) == morto){
 					if(contagem == 3){
 						complementar.setViver(linha, coluna);
 					}

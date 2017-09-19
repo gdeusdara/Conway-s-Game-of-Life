@@ -3,25 +3,24 @@
 
 #include <iostream>
 #include <string>
-#include "celula.hpp"
 #include "forma.hpp"
 
 using namespace std;
 
-class campo: public celula{
+class campo{
 private:
-
-	celula matriz[57][220];
+	char vivo;
+	char morto;
+	char matriz[56][220];
 
 public:
 	campo();
+	campo(char vivo, char morto);
 	~campo();
 
 	char getEstado(int linha, int coluna);
-	void setViver(int linha, int coluna);
-	void setMorrer(int linha, int coluna);
-	void setEstadoVivo(char vivo);
-	void setEstadoMorto(char morto);
+	void setViver(int linha, int coluna);					
+	void setMorrer(int linha, int coluna); 	
 	void getMatriz();
 	void acrescentaForma(forma organismo);
 	campo regrasDoJogo();
