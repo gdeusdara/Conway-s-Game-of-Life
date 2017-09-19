@@ -20,10 +20,12 @@ public:
 
 	char getEstado(int linha, int coluna);
 	void setViver(int linha, int coluna);					
-	void setMorrer(int linha, int coluna); 	
+	void setMorrer(int linha, int coluna);
+	char getVivo();
+	char getMorto(); 	
 	void getMatriz();
 	void acrescentaForma(forma organismo);
-	campo regrasDoJogo();
+	campo * regrasDoJogo();
 };
 
 

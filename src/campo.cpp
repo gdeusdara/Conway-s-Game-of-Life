@@ -46,6 +46,14 @@ void campo::setMorrer(int linha, int coluna){
 	matriz[linha][coluna] = morto;
 }
 
+char campo::getVivo(){
+	return vivo;
+}
+char campo::getMorto(){
+	return morto;
+}
+
+
 void campo::getMatriz(){
 	system("clear");
 	cout <<	"\t\t\t\t\t\t\t\t\t\t\t\t\t\tJOGO DA VIDA" << endl << endl;
@@ -97,10 +105,11 @@ void campo::acrescentaForma(forma organismo){
 	}
 }
 
-campo campo::regrasDoJogo(){
+
+campo * campo::regrasDoJogo(){
 	int linha, coluna;
 	int contagem;
-	campo complementar;
+	campo * complementar = new campo(vivo, morto);
 
 	for (linha = 0; linha < 56; linha++)
 			for (coluna = 0; coluna < 220; coluna++){
@@ -134,13 +143,13 @@ campo campo::regrasDoJogo(){
 				
 				if(getEstado(linha, coluna) == morto){
 					if(contagem == 3){
-						complementar.setViver(linha, coluna);
+						complementar->setViver(linha, coluna);
 					}
 				}else{
 					if(contagem < 2 or contagem > 3){
-						complementar.setMorrer(linha, coluna);
+						complementar->setMorrer(linha, coluna);
 					}else{
-						complementar.setViver(linha,coluna);
+						complementar->setViver(linha,coluna);
 					}
 				}
 				
