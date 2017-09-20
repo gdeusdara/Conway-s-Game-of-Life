@@ -1,6 +1,6 @@
 #									JOGO DA VIDA
 ## by Guilherme A. Deusdará Banci  							
-##Matrícula: 16/0122996
+## Matrícula: 16/0122996
 
 
 
