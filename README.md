@@ -11,7 +11,7 @@ make
 
 make run
 
-###JOGUE COM O TERMINAL EM TELA CHEIA
+### JOGUE COM O TERMINAL EM TELA CHEIA
 ###	Todos os comandos só são executados após apertar ENTER
 
 ###Menu Principal
