@@ -1,5 +1,6 @@
 #									JOGO DA VIDA
-## by Guilherme A. Deusdará Banci  							Matrícula: 16/0122996
+## by Guilherme A. Deusdará Banci  							
+##Matrícula: 16/0122996
 
 
 
@@ -37,7 +38,7 @@ T    terminar de ajustar
 
 
 
-## OBS: Mover por cima de outro organismo apaga o mesmo
+##### OBS: Mover por cima de outro organismo apaga o mesmo
 
 Após terminar de ajustar, Digite:
 
