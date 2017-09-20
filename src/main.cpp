@@ -18,7 +18,7 @@ using namespace std;
 
 char menuPrincipal();
 char menuDeOrganismos(campo * jogo);
-char menuDeOpcoes(int qtdGeracoes);
+char menuDeOpcoes(int qtdGeracoes, campo * jogo);
 campo * MudaVivoMorto();
 int MudaQtdGeracoes();
 int EscolheVelocidade();
@@ -58,7 +58,7 @@ int main(int argc, char ** argv) {
 			jogo = new campo(jogo->getVivo(), jogo->getMorto());
 			break;
 		case '2':
-			opcao = menuDeOpcoes(qtdGeracoes);
+			opcao = menuDeOpcoes(qtdGeracoes, jogo);
 			switch (opcao){
 				case '1':
 					jogo = MudaVivoMorto();
@@ -124,7 +124,6 @@ char menuDeOrganismos(campo * jogo){
 
 
 			cin >> opcao;
-			system("clear");
 		}while(opcao != '1' and opcao != '2' and opcao != '3' and opcao != '4' and opcao != '5' and opcao != '6');
 		if (opcao != '6'){
 			switch (opcao) {
@@ -148,22 +147,22 @@ char menuDeOrganismos(campo * jogo){
 				cout << "\t\t\tDeseja acrescentar mais organismos? Digite S para SIM e I para INICIAR (6 para voltar ao MENU PRINCIPAL)" << endl;
 		 		cin >> opcao;
 		 		opcao = toupper(opcao);
-		 	}while(opcao != 'S' and opcao != 'N' and opcao != '6');
+		 	}while(opcao != 'S' and opcao != 'I' and opcao != '6');
 		}
 		system("clear"); 
 
-	}while (opcao != 'N' and opcao != '6');
+	}while (opcao != 'I' and opcao != '6');
 
 	return opcao;
 
 }
 
 
-char menuDeOpcoes(int qtdGeracoes){
+char menuDeOpcoes(int qtdGeracoes, campo * jogo){
 	char escolha;
 
 	do{
-		cout << "1. Mudar estado de VIVO e MORTO" << endl;
+		cout << "1. Mudar estado de VIVO e MORTO -> atualmente:   VIVO: " << jogo->getVivo() << "    MORTO: " << jogo->getMorto() << endl;
 		cout << "2. Mudar a Quantidade de GERAÇÕES -> atualmente: " << qtdGeracoes << " gerações" << endl;
 		cout << "3. Mudar VELOCIDADE do jogo" << endl;
 		cout << "4. Voltar ao MENU PRINCIPAL" << endl;
@@ -194,10 +193,26 @@ int MudaQtdGeracoes(){
 	int geracoes;
 	do{
 		cout << "Digite a Quantidade de GERAÇÕES desejadas (impossivel quantidade negativa): ";
-		cin >> geracoes;
+
+		try{
+			cin >> geracoes;
+			if (cin.fail()) {
+    			cout <<" NÃO É UM NÚMERO!";
+    			throw(10);
+
+			}
+		}
+
+		catch(int e){
+			cout << "ERRO DE ENTRADA";
+		}
+
 		system("clear");
+
+	
 	}while(geracoes < 1);
 
+	
 	return geracoes;
 
 }

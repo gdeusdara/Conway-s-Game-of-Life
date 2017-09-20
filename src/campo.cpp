@@ -10,8 +10,8 @@
 using namespace std;
 
 campo::campo(){
-	vivo = 'E';
-	morto = '-';
+	vivo = 'G';
+	morto = '~';
 
 	int linha, coluna;
 
@@ -77,6 +77,7 @@ void campo::acrescentaForma(forma organismo){
 		for(int contador = 0; contador < organismo.getQuantidadeCoordenadas(); contador++)
 			matriz[organismo.getCoordenada_x(contador) + moverVertical][organismo.getCoordenada_y(contador) + moverHorizontal] = vivo;
 
+		system("clear");
 		getMatriz();
 		cout << endl << "\tutilize as teclas A,S,D,W para MOVER o organismo\t\t\t\t\t\tAperte T para terminar de ajustar\t\t\t\t\t\t(sempre aperte ENTER depois das teclas)" << endl;
 		cout << endl << "\t\t\t\t\t\t\t\t\tÉ RECOMENDADO RETIRAR O ORGANISMO DO MEIO DO CAMPO SE FOR ACRESCRENTAR MAIS ORGANISMOS" <<endl;
