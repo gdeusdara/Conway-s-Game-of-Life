@@ -29,8 +29,8 @@ Para escolher uma ORGANISMO digite 1/2/3/4/5/6
 
 Opções:
 
-###### A    -mover para a direita
-###### D    -mover para a esquerda
+###### A    -mover para a esquerda
+###### D    -mover para a direita
 ###### S    -mover para baixo
 ###### W    -mover para cima
 
