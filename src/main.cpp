@@ -235,16 +235,16 @@ int EscolheVelocidade(){
 
 	switch(escolha){
 		case '1':
-			velocidade = 70000;
+			velocidade = 50000;
 			break;
 		case '2':
 			velocidade = 100000;
 			break;
 		case '3':
-			velocidade = 700000;
+			velocidade = 200000;
 			break;
 		case '4':
-			velocidade = 200000;
+			velocidade = 500000;
 	}
 
 	return velocidade;

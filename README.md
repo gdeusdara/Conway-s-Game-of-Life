@@ -29,12 +29,12 @@ Para escolher uma ORGANISMO digite 1/2/3/4/5/6
 
 Opções:
 
-###### A    mover para a direita
-###### D    mover para a esquerda
-###### S    mover para baixo
-###### W    mover para cima
+###### A    -mover para a direita
+###### D    -mover para a esquerda
+###### S    -mover para baixo
+###### W    -mover para cima
 
-###### T    terminar de ajustar
+###### T    -terminar de ajustar
 
 
 
@@ -42,18 +42,18 @@ Opções:
 
 Após terminar de ajustar, Digite:
 
-###### S    para escolher mais 1 organismo
-###### I    para INICIAR O JOGO
-###### 6    para voltar ao MENU PRINCIPAL
+###### S    -para escolher mais 1 organismo
+###### I    -para INICIAR O JOGO
+###### 6    -para voltar ao MENU PRINCIPAL
 
 
 ##### 1.2 Após término do jogo
 
 Digite:
 
-###### 3    					para FINALIZAR O JOGO
+###### 3    					-para FINALIZAR O JOGO
 
-###### qualquer tecla			para VOLTAR AO MENU PRINCIPAL
+###### qualquer tecla			-para VOLTAR AO MENU PRINCIPAL
 
 
 #### 2.Menu de opções
